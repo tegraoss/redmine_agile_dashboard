@@ -1,0 +1,18 @@
+<a id="myID"></a>
+<div style="display: flex; flex-flow:row wrap;">
+  <% @v.each do |v| -%>
+  <div style="width: 45%; margin: 30px auto">
+    <h2><%= v.project.name -%></h2>
+    <embed style="width: 100%;" src="/agile/charts/render_chart?chart=work_burndown_hours&version_id=<%= v.id -%>">
+  </div>
+  <% end -%>
+</div>
+
+<script type="text/javascript">
+  var timeout = setTimeout("location.reload(true);",1000*60*1);
+  window.onload = Scrolldown;
+  function Scrolldown() {
+     //window.scroll(0,300);
+     window.location='#myID'
+  }
+</script>
